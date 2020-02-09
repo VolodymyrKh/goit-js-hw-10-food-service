@@ -26,3 +26,7 @@ refs.switchInput.addEventListener('change', event => {
 
   localStorage.setItem('inputValue', event.currentTarget.checked);
 });
+
+// window.addEventListener('onbeforeunload', event => {
+//   localStorage.removeItem('inputValue');
+// });
