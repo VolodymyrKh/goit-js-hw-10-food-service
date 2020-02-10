@@ -10,9 +10,9 @@ const Theme = {
 
 refs.bodyTheme.classList.add(Theme.LIGHT);
 
-const persistedInputValue = localStorage.getItem('inputValue');
+const persistedInputValue = localStorage.getItem('theme');
 
-if (persistedInputValue === 'true') {
+if (persistedInputValue === 'dark-theme') {
   refs.switchInput.checked = true;
   refs.bodyTheme.classList.replace(Theme.LIGHT, Theme.DARK);
 }
@@ -23,10 +23,6 @@ refs.switchInput.addEventListener('change', event => {
   } else {
     refs.bodyTheme.classList.replace(Theme.DARK, Theme.LIGHT);
   }
-
-  localStorage.setItem('inputValue', event.currentTarget.checked);
+  let theme = event.currentTarget.checked ? Theme.DARK : Theme.LIGHT;
+  localStorage.setItem('theme', theme);
 });
-
-// window.addEventListener('onbeforeunload', event => {
-//   localStorage.removeItem('inputValue');
-// });
